@@ -1,17 +1,28 @@
 <template>
     <div>
-        <select  id="filter">
-            <option value="1">Select category</option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
+        <select  id="filter" v-model="search" >
+        <option selected value="">Select category</option>
+            <option :value="status" v-for="(status,i) in statusOptions" :key="i">{{status}}</option>
         </select>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Filter'
+        name: 'Filter',
+        data() {
+            return {
+                statusOptions: [
+                    'alive',
+                    'dead',
+                    'unknown'
+                ],
+                search: '',
+            }
+        },
+        props:{
+
+        }
     }
 </script>
 

@@ -1,12 +1,15 @@
 <template>
     <div>
-        <h1>Titolo</h1>
+        <h1>{{ title }}</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Header'
+        name: 'Header',
+        props: {
+            title: String
+        }
     }
 </script>
 
@@ -17,4 +20,8 @@
         color: aliceblue;
         letter-spacing: .4rem;
     }
+    
+    h1::selection{
+            background-color: rgba(0, 100, 0, 0); color: rgb(0, 155, 39);
+        }
 </style>
