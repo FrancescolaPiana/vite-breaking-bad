@@ -34,14 +34,16 @@
 <style lang="scss" scoped>
     @use '../styles/partials.scss/variables' as*; 
     .container{
-        width: 1170px;
+        width: 1150px;
         // height: 1170px;  
         background-color: aliceblue;  
         margin: 0 auto;
         border-radius: 3px;
+        padding: 5px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
+        gap: 10px;
         .card{
             padding: 10px;
             height: 315px;
@@ -50,14 +52,14 @@
             flex-direction: column;
             align-items: center;
             background-color: $darkgrey;
-            margin-top: 5px;
-            margin-bottom: 5px;
             border-radius: 5px;
             box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.4);
             .img{
                 overflow: hidden;
                 height: 200px;
                 width: 200px;
+                border-radius: 20px;
+                box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.4);
                 img{
                     width: 200px;
                 }

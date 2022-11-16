@@ -1,11 +1,13 @@
 <template>
     <div>
-        <select  id="filter" v-model="search" >
+        <select  id="searchStatus" v-model="search" @change="changed">
         <option selected value="">Select category</option>
             <option :value="status" v-for="(status,i) in statusOptions" :key="i">{{status}}</option>
         </select>
     </div>
 </template>
+
+
 
 <script>
     export default {
@@ -13,24 +15,34 @@
         data() {
             return {
                 statusOptions: [
-                    'alive',
-                    'dead',
-                    'unknown'
+                    'Breaking Bad',
+                    'Better Call Saul'
                 ],
                 search: '',
             }
         },
-        props:{
 
-        }
+        methods: {
+            changed(){
+                console.log(this.search);
+            }
+        },
+        // props:{
+        //     searchStatus: String
+        // }
     }
+
+
+    // /api/characters?category=Better+Call+Saul
+
+
 </script>
 
 <style lang="scss" scoped>
     div{
-        width: 1170px;
+        width: 1150px;
         margin: 20px auto;
-        #filter{
+        #searchStatus{
             padding: 1rem 2rem;
             border-radius: 5px;
             font-size: 20px;

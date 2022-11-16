@@ -26,6 +26,7 @@ import Main from './components/Main.vue';
           apiUrl: 'https://www.breakingbadapi.com/api/characters',
           characterList: [],
           loading: false,
+          searchStatus: ''
       }
     },
 
