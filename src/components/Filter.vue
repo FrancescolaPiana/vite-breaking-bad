@@ -24,6 +24,7 @@
 
         methods: {
             changed(){
+                this.$emit('filterchar',this.search)
                 console.log(this.search);
             }
         },

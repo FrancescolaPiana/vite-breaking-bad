@@ -1,7 +1,7 @@
 <template>
 <body>
   <Header title="Breaking Bad API"/>
-  <Filter/>
+  <Filter @filterchar="getCharacter"/>
   <main>
     <Main :characters="characterList"/>
   </main>
@@ -24,6 +24,8 @@ import Main from './components/Main.vue';
     data() {
       return {
           apiUrl: 'https://www.breakingbadapi.com/api/characters',
+          apiUrlBcs: 'https://www.breakingbadapi.com/api/characters?category=Better+Call+Saul',
+          apiUrlBrb: 'https://www.breakingbadapi.com/api/characters?category=Breaking+Bad',
           characterList: [],
           loading: false,
           searchStatus: ''
@@ -31,14 +33,34 @@ import Main from './components/Main.vue';
     },
 
     methods: {
-      getCharacter(){
-        axios.get(this.apiUrl).then(
+      getCharacter(status){
+        if (status === 'Better Call Saul') {
+          axios.get(this.apiUrlBcs).then(
           (res) => {
             console.log(res.data);
             this.characterList = [...res.data];
           },
           () => {}
           )
+        }
+        else if (status === 'Breaking Bad') {
+          axios.get(this.apiUrlBrb).then(
+          (res) => {
+            console.log(res.data);
+            this.characterList = [...res.data];
+          },
+          () => {}
+          )
+        }
+        else{
+          axios.get(this.apiUrl).then(
+          (res) => {
+            console.log(res.data);
+            this.characterList = [...res.data];
+          },
+          () => {}
+          )
+        }
       }
     },
 
